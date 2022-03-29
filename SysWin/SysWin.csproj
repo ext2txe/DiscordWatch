@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{569162AE-666F-4B77-9D8B-C66C1796C8E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SysWin</RootNamespace>
+    <AssemblyName>SysWin</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\ApiHelper.cs">
+      <Link>ApiHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\Children.cs">
+      <Link>Children.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\CursorUtils.cs">
+      <Link>CursorUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\Desktop.cs">
+      <Link>Desktop.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\Display.cs">
+      <Link>Display.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\DisplayInfo.cs">
+      <Link>DisplayInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\GenUtils.MouseKbd.cs">
+      <Link>GenUtils.MouseKbd.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\KeyboardHook.cs">
+      <Link>KeyboardHook.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\MainSystemWindow.cs">
+      <Link>MainSystemWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\PInvokeTypes.cs">
+      <Link>PInvokeTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\ProcessMemoryChunk.cs">
+      <Link>ProcessMemoryChunk.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\Screenshot.cs">
+      <Link>Screenshot.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\SystemListView.cs">
+      <Link>SystemListView.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\SystemWindow.cs">
+      <Link>SystemWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\WindowContent.cs">
+      <Link>WindowContent.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\support\HelperModules\SysWin\WinUtils.cs">
+      <Link>WinUtils.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseLib\BaseLib.csproj">
+      <Project>{262f1bfc-7ac0-46d4-b88f-bea719bd4f8d}</Project>
+      <Name>BaseLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
