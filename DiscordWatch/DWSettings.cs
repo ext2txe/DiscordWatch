@@ -29,5 +29,6 @@ namespace DiscordWatch
 
         public bool EnableAlert { get => GetBoolean("EnableAlert", false); set => SetBoolean("EnableAlert", value); }
         public string PathToAlertFile { get => GetString("PathToAlertFile"); set => SetString("PathToAlertFile", value); }
+        public string ImageSaveFolder { get => GetString("ImageSaveFolder"); set => SetString("ImageSaveFolder", value); }
     }
 }

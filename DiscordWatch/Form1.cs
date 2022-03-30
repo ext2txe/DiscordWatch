@@ -48,6 +48,8 @@ namespace DiscordWatch
             targetHeightUpDown.Value = _settings.TargetHeight;  
             chkEnableAlert.Checked = _settings.EnableAlert;
             textAlertSoundFile.Text = _settings.PathToAlertFile;
+            textImageSaveFolder.Text = _settings.ImageSaveFolder;
+            timerIntervalUpDown.Value = _settings.TimerInterval;
 
             cbWindowTitles.Text = _settings.WindowTitle;
             BaseUtils.GeometryFromString(_settings.WindowGeometry, this);
@@ -180,11 +182,13 @@ namespace DiscordWatch
             string hash = GetImageHash(clone);
             textSubImageHash.Text = hash;
             textSubImageHash.Refresh();
+            lblLastChecked.Text = DateTime.Now.ToString("HHmmss.fff");
+            lblLastChecked.Refresh();
 
             if (!hash.Equals(_lastHash))
             {
                 string bmpFilename = $"{DateTime.Now.ToString("yyyyMMddhhmmss.fff")}_discord.jpg";
-                bmpFilename = Path.Combine(@"c:\Users\joe\Desktop\discord", bmpFilename);
+                bmpFilename = Path.Combine(_settings.ImageSaveFolder, bmpFilename);
                 _discordScreenshot.Save(bmpFilename);
                 _lastHash = hash;
                 SoundAlert();
@@ -269,6 +273,7 @@ namespace DiscordWatch
         private void timerIntervalUpDown_ValueChanged(object sender, EventArgs e)
         {
             _settings.TimerInterval = (int) timerIntervalUpDown.Value;
+            timer1.Interval = _settings.TimerInterval * 1000;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -319,6 +324,22 @@ namespace DiscordWatch
         private void textAlertSoundFile_TextChanged(object sender, EventArgs e)
         {
             _settings.PathToAlertFile = textAlertSoundFile.Text;
+        }
+
+        private void BtnSelectImageSaveFolder_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folder = new FolderBrowserDialog();
+            folder.SelectedPath = textImageSaveFolder.Text;
+            if (folder.ShowDialog() == DialogResult.OK)
+            {
+                textImageSaveFolder.Text = folder.SelectedPath;
+                textImageSaveFolder.Refresh();
+            }
+        }
+
+        private void textImageSaveFolder_TextChanged(object sender, EventArgs e)
+        {
+            _settings.ImageSaveFolder = textImageSaveFolder.Text;
         }
     }
 }
