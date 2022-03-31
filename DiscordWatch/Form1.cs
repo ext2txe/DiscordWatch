@@ -214,7 +214,7 @@ namespace DiscordWatch
             string hash = GetImageHash(clone);
             textSubImageHash.Text = hash;
             textSubImageHash.Refresh();
-            lblLastChecked.Text = DateTime.Now.ToString("HHmmss.fff");
+            lblLastChecked.Text = DateTime.Now.ToString("HH-mm-ss.fff");
             lblLastChecked.Refresh();
 
             Point? pClickAt = Test2();
@@ -543,6 +543,7 @@ namespace DiscordWatch
             else
             {
                 MessageBox.Show($" Tada NOT found");
+                chkEnableTimer.Checked = false;
             }
         }
 
@@ -587,7 +588,10 @@ namespace DiscordWatch
             catch (Exception ex)
             {
                 string s = $"Test1() @[{step}] EXCEPTION [{ex.Message}";
-                throw new Exception(s);
+                MessageBox.Show(s);
+                MessageBox.Show($" Tada NOT found");
+                chkEnableTimer.Checked = false;
+                return null;
             }
         }
     }
